@@ -1,0 +1,36 @@
+<canvas id="canvas" style="border:1px solid;"></canvas>
+
+<style>
+  body{
+    background:#303030;
+  }
+  #canvas{background:white}
+</style>
+
+<script>
+  
+  let c = canvas.getContext('2d');
+  let y = 50;
+  
+  function gameLoop() {
+    window.requestAnimationFrame(gameLoop);
+    // clear canvas
+    c.clearRect(0,0,canvas.width,canvas.height);
+    
+    
+    // update position
+    y += 1;
+    
+    // handle collision
+    // 10 is box height
+    if (y > canvas.height - 10) {
+      y = canvas.height - 10; // reset position
+    }
+    
+    // draw box
+    c.fillRect(50,y,10,10)
+  }
+  
+  gameLoop();
+  
+</script>
